@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Marks Calculator</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+input {
+    width: 90%;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+button {
+    padding: 10px;
+    width: 100%;
+    background-color: #667eea;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #5a67d8;
+}
+
+#result {
+    margin-top: 15px;
+    font-weight: bold;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h2>Marks Percentage Calculator</h2>
+
+<input type="number" id="sub1" placeholder="Subject 1 Marks">
+<input type="number" id="sub2" placeholder="Subject 2 Marks">
+<input type="number" id="sub3" placeholder="Subject 3 Marks">
+
+<button onclick="calculate()">Calculate</button>
+
+<h3 id="result"></h3>
+
+</div>
+
+<script>
+function calculate() {
+
+    let m1 = Number(document.getElementById("sub1").value);
+    let m2 = Number(document.getElementById("sub2").value);
+    let m3 = Number(document.getElementById("sub3").value);
+
+    let total = m1 + m2 + m3;
+    let percentage = (total / 3).toFixed(2);
+
+    let grade;
+
+    if (percentage >= 75) {
+        grade = "Grade A";
+    } else if (percentage >= 60) {
+        grade = "Grade B";
+    } else {
+        grade = "Grade C";
+    }
+
+    document.getElementById("result").innerText =
+        "Total: " + total +
+        " | Percentage: " + percentage + "%" +
+        " | " + grade;
+}
+</script>
+
+</body>
+</html>
